@@ -85,6 +85,8 @@ def main(wf):
 	
 	results_from_svr = wf.cached_data('results_from_svr', max_age = 0)
 	for item in results_from_svr:
+		if len(item) < 12:
+			continue
 		itr = wf.add_item(item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7], item[8], item[9], item[10], item[11])
 		if item[12] != {}:
 			itr.add_modifier('cmd', item[12]['cmd'], item[12]['cmd_paste'])
